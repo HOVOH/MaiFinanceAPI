@@ -20,6 +20,9 @@
     "test": "dts test",
     "typechain": "typechain --target ethers-v5 --out-dir ./src/bindings ./abis/*.json"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "dts lint"
