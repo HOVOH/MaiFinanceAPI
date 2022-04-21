@@ -1,0 +1,70 @@
+{
+  "name": "@hovoh/maifinanceapi",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "HOVOH",
+  "main": "dist/index.js",
+  "module": "dist/maifinanceapi.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "analyze": "size-limit --why",
+    "build": "dts build",
+    "lint": "dts lint",
+    "prepare": "dts build",
+    "size": "size-limit",
+    "start": "dts watch",
+    "test": "dts test",
+    "typechain": "typechain --target ethers-v5 --out-dir ./src/bindings ./abis/*.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "dts lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "./tsconfig.jest.json"
+      }
+    }
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=12"
+  },
+  "size-limit": [
+    {
+      "path": "dist/maifinanceapi.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/maifinanceapi.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@tsconfig/recommended": "^1.0.1",
+    "@typechain/ethers-v5": "^10.0.0",
+    "dts-cli": "^1.5.0",
+    "husky": "^7.0.4",
+    "size-limit": "^7.0.8",
+    "tslib": "^2.3.1",
+    "typechain": "^8.0.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@hovoh/evmcontractsregistry": "^0.2.2"
+  }
+}
